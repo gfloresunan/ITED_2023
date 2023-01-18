@@ -1,91 +1,64 @@
-@extends('layout.master')
-
-
-@section('content')
-<!--Page content -->
-<section class="py-50">
-    <div class="container">
-        <div class="row justify-content-center no-gutters">
-            <div class="col-lg-5 col-md-5 col-12">
-                <div class="box box-body">
-                    <div class="content-top-agile pb-0 pt-20">
-                        <h2 class="text-primary">Get started with Us</h2>
-                        <p class="mb-0">Register a New Membership</p>
-                    </div>
-                    <div class="p-40">
-                        <form action="/register" method="POST">
-                            {!! csrf_field() !!}
-                            <div class="form-group">
-                                <div class="input-group mb-15">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-transparent"><i class="ti-user"></i></span>
-                                    </div>
-                                    <input type="text" name="name"  class="form-control pl-15 bg-transparent" placeholder="Full Name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-15">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-transparent"><i class="ti-user"></i></span>
-                                    </div>
-                                    <input type="text" name="username"  class="form-control pl-15 bg-transparent" placeholder="User Name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-15">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-transparent"><i class="ti-email"></i></span>
-                                    </div>
-                                    <input type="email" name="email" class="form-control pl-15 bg-transparent" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-15">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-transparent"><i class="ti-lock"></i></span>
-                                    </div>
-                                    <input type="password" name="password" class="form-control pl-15 bg-transparent" placeholder="Password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-15">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-transparent"><i class="ti-lock"></i></span>
-                                    </div>
-                                    <input type="password" name="password_confirmation" class="form-control pl-15 bg-transparent" placeholder="Retype Password">
-                                </div>
-                            </div>
-                              <div class="row">
-                                <div class="col-12">
-                                  <div class="checkbox ml-5">
-                                    <input type="checkbox" id="basic_checkbox_1">
-                                    <label for="basic_checkbox_1">I agree to the <a href="#" class="text-warning"><b>Terms</b></a></label>
-                                  </div>
-                                </div>
-                                <!-- /.col -->
-                                <div class="col-12 text-center">
-                                  <button type="submit"  class="btn btn-info btn-block mt-15">REGISTRARSE</button>
-                                </div>
-                                <!-- /.col -->
-                              </div>
-                        </form>
-                        <div class="text-center">
-                            <p class="mt-15 mb-0">Already have an account?<a href="{{url('login')}}"class="text-danger ml-5"> Log In</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                  <p class="mt-20">- Register With -</p>
-                  <p class="d-flex gap-items-2 mb-0 justify-content-center">
-                      <a class="btn btn-social-icon btn-round btn-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                      <a class="btn btn-social-icon btn-round btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
-                      <a class="btn btn-social-icon btn-round btn-instagram" href="#"><i class="fa fa-instagram"></i></a>
-                    </p>
-                </div>
-            </div>
+<x-guest-layout>
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
+        <!-- Name -->
+        <div>
+            <x-input-label for="name" :value="__('Nombres')" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
-    </div>
-</section>
-<!--Page content -->
-@endsection
+        <!-- LastName -->
+        <div class="mt-4">
+            <x-input-label for="lastname" :value="__('Apellidos')" />
+            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required />
+            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+        </div>
+
+        <!-- Email Address -->
+        <div class="mt-4">
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Username -->
+        <div class="mt-4">
+            <x-input-label for="username" :value="__('Nombre de usuario')" />
+            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required />
+            <x-input-error :messages="$errors->get('username')" class="mt-2" />
+        </div>
+
+        <!-- Password -->
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
+
+            <x-text-input id="password" class="block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="mt-4">
+            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+
+            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                            type="password"
+                            name="password_confirmation" required />
+
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+        <div class="flex items-center justify-end mt-4">
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                {{ __('Already registered?') }}
+            </a>
+
+            <x-primary-button class="ml-4">
+                {{ __('Register') }}
+            </x-primary-button>
+        </div>
+    </form>
+</x-guest-layout>
