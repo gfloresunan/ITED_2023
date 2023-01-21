@@ -13,10 +13,4 @@ class WelcomeController extends Controller
         $categoria = Categoria::all();
         return view('welcome.index', ['categorias' => $categoria]);
     }
-
-    public function show($curso)
-    {
-        $cursos = Curso::all();
-        return view('welcome.index', ['categorias' => $cursos]);
-    }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\WelcomeController;
+use \App\Http\Controllers\CursosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,8 @@ use \App\Http\Controllers\WelcomeController;
 Route::get('/', [WelcomeController::class, 'index'])
     ->name('welcome.index');
 
-
+Route::get('/cursos/{cat}', [CursosController::class, 'index'])
+    ->name('cursos.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

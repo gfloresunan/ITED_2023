@@ -41,7 +41,7 @@
                                     @foreach ($categorias as $cat)
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
-                                            <a href="#">
+                                            <a href="{{ route('cursos.index', $cat->id) }}">
                                                 <img class="card-img-top" src="{{ URL::asset('assets/images/front-end-img/courses/fondos.png') }}"  alt="Card image cap">
                                             </a>
                                             <div class="box-body">
