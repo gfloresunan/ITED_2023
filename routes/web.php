@@ -19,18 +19,9 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('registro');
-});*/
-
-
-/*Route::get('/price', function () {
-    return view('price');
-});*/
-
 Route::get('/', function () {
-	return view('home');
-});
+	return view('welcome');
+})->name('welcome');
 
 Route::get('/register', [RegisterController::class, 'show']);
 
