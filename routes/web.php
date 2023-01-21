@@ -17,7 +17,7 @@ use \App\Http\Controllers\WelcomeController;
 Route::get('/', [WelcomeController::class, 'index'])
     ->name('welcome.index');
 
-Route::get('/{curso}', [WelcomeController::class, 'show'])->name('welcome.show');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
