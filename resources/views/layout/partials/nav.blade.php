@@ -21,7 +21,7 @@
             </div>
             <div class="col-lg-6 col-12 xs-mb-10">
               <div class="topbar-call text-center text-lg-right topbar-right">
-                <ul class="list-inline d-lg-flex justify-content-end">				  
+                <ul class="list-inline d-lg-flex justify-content-end">
                    <li class="mr-10 pl-10 lng-drop">
                         <select class="header-lang-bx selectpicker">
                           <option>USD</option>
@@ -37,7 +37,7 @@
                       </select>
                    </li>
                    <li class="mr-10 pl-10"><a href="#"><i class="text-white fa fa-user d-md-inline-block d-none"></i> Register</a></li>
-                   <li class="mr-10 pl-10"><a href="#"><i class="text-white fa fa-sign-in d-md-inline-block d-none"></i> Login</a></li>
+                   <li class="mr-10 pl-10"><a href="{{ route("login") }}"><i class="text-white fa fa-sign-in d-md-inline-block d-none"></i> Login aqui</a></li>
                    <li class="mr-10 pl-10"><a href="#"><i class="text-white fa fa-dashboard d-md-inline-block d-none"></i> My Account</a></li>
                 </ul>
               </div>
@@ -53,9 +53,9 @@
               </a>
               <button class="toggle-bar">
                   <span class="ti-menu"></span>
-              </button>	
-          </div>								
-          <ul class="menu">	
+              </button>
+          </div>
+          <ul class="menu">
               <li class="dropdown">
                   <a href="#">Home</a>
                   <ul class="dropdown-menu">
@@ -66,10 +66,10 @@
                       <li><a href="index5.html">Home 5</a></li>
                       <li><a href="index6.html">Home 6</a></li>
                   </ul>
-              </li>				
+              </li>
               <li>
                   <a href="about.html">About</a>
-              </li>				
+              </li>
               <li class="dropdown">
                   <a href="#">Courses</a>
                   <ul class="dropdown-menu">
@@ -105,7 +105,7 @@
                               <ul class="list-group">
                                   <li><h4 class="menu-title">Widgets</h4></li>
                                   <li><a href="widgets.html"><i class="ti-arrow-circle-right mr-10"></i>Widgets</a></li>
-                                  <li><a href="courses_list.html"><i class="ti-arrow-circle-right mr-10"></i>Courses List</a></li>									
+                                  <li><a href="courses_list.html"><i class="ti-arrow-circle-right mr-10"></i>Courses List</a></li>
                                   <li><a href="courses_details.html"><i class="ti-arrow-circle-right mr-10"></i>Courses Details</a></li>
                                   <li><a href="register.html"><i class="ti-arrow-circle-right mr-10"></i>Register</a></li>
                                   <li><a href="login.html"><i class="ti-arrow-circle-right mr-10"></i>Login</a></li>
@@ -124,7 +124,7 @@
                                   <li><a href="header_style2.html"><i class="ti-arrow-circle-right mr-10"></i>Header Two</a></li>
                                   <li><a href="header_style3.html"><i class="ti-arrow-circle-right mr-10"></i>Header Three</a></li>
                                   <li><a href="header_style4.html"><i class="ti-arrow-circle-right mr-10"></i>Header Four</a></li>
-                                  <li><a href="header_style5.html"><i class="ti-arrow-circle-right mr-10"></i>Header Five</a></li> 
+                                  <li><a href="header_style5.html"><i class="ti-arrow-circle-right mr-10"></i>Header Five</a></li>
                                   <li><a href="footer_style1.html"><i class="ti-arrow-circle-right mr-10"></i>Footer One</a></li>
                                   <li><a href="footer_style2.html"><i class="ti-arrow-circle-right mr-10"></i>Footer Two</a></li>
                                   <li><a href="footer_style3.html"><i class="ti-arrow-circle-right mr-10"></i>Footer Three</a></li>
@@ -138,7 +138,7 @@
                           </div>
                       </div>
                   </div>
-              </li>				
+              </li>
               <li class="dropdown">
                   <a href="#">Blog</a>
                   <ul class="dropdown-menu">
@@ -173,7 +173,7 @@
                           </ul>
                       </li>
                   </ul>
-              </li>		
+              </li>
               <li class="dropdown">
                   <a href="#">Shop</a>
                   <ul class="dropdown-menu">
@@ -199,7 +199,7 @@
                           <div class="total-price">
                               Total:  <span>$2,432.93</span>
                           </div>
-                          <i class="ti-shopping-cart"></i> 
+                          <i class="ti-shopping-cart"></i>
                           <span class="badge">3</span>
                       </div>
                       <div class="cart-body">
