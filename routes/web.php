@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\WelcomeController;
 use \App\Http\Controllers\CursosController;
+use \App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,11 @@ Route::get('/', [WelcomeController::class, 'index'])
 
 Route::get('/cursos/{cat}', [CursosController::class, 'index'])
     ->name('cursos.index');
+
+Route::post('/', [WelcomeController::class, 'show'])->name('welcome.show');
+
+Route::get('/search/{search}', [SearchController::class, 'index'])
+    ->name('search.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

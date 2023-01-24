@@ -8,9 +8,10 @@
                             Encuentre su curso en línea
                         </h1>
                     </div>
-                    <form class="cours-search mb-30">
+                    <form class="cours-search mb-30" method="POST" action="{{ route('welcome.show') }}">
+                        @csrf
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="¿Qué quieres aprender hoy?">
+                            <input type="text" name="search" class="form-control" placeholder="¿Qué quieres aprender hoy?">
                             <div class="input-group-append">
                                 <button class="btn btn-block btn-primary" type="submit">Buscar</button>
                             </div>

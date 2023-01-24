@@ -13,4 +13,5 @@ class CursosController extends Controller
 
         return view('cursos.index', ['cursos'=>$cursos]);
     }
+
 }
