@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categoria;
-use App\Models\Curso;
+use App\Models\Categories;
+use App\Models\Courses;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
     public function index()
     {
-        $categoria = Categoria::all();
+        $categoria = Categories::all();
         return view('welcome.index', ['categorias' => $categoria]);
     }
     public function show(Request $request){

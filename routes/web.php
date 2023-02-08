@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\WelcomeController;
-use \App\Http\Controllers\CursosController;
+use \App\Http\Controllers\CoursesController;
 use \App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +19,11 @@ use \App\Http\Controllers\SearchController;
 Route::get('/', [WelcomeController::class, 'index'])
     ->name('welcome.index');
 
-Route::get('/cursos/{cat}', [CursosController::class, 'index'])
+Route::get('/cursos/{cat}', [CoursesController::class, 'index'])
     ->name('cursos.index');
+
+Route::get('/curso/{id}', [CoursesController::class, 'show'])
+    ->name('curso.index');
 
 Route::post('/', [WelcomeController::class, 'show'])->name('welcome.show');
 

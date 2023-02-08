@@ -47,9 +47,9 @@
                                             </a>
                                             <div class="box-body">
                                                 <div class="text-left">
-                                                    <h4 class="box-title" style="margin-bottom: 0px">{{ $cat->nombreCategoria }}</h4>
+                                                    <h4 class="box-title" style="margin-bottom: 0px">{{ $cat->name }}</h4>
                                                     <hr class="w-180 bg-primary" style="margin-left:0;">
-                                                    <p class="box-text">{{ $cat->descriptions }}</p>
+                                                    <p class="box-text">{!! $cat->description !!}</p>
                                                     <a href="{{ route('cursos.index', $cat->id) }}" class="btn btn-outline btn-primary btn-sm">Ver cursos</a>
                                                 </div>
                                             </div>

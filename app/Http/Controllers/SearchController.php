@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Curso;
+use App\Models\Courses;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
     public function index($search)
     {
-        $cursos = Curso::where([
+        $cursos = Courses::where([
             [function ($query) use ($search) {
                 if (($s = $search)) {
                     $query->orWhere('nombre', 'LIKE', '%' . $s . '%')
