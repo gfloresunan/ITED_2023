@@ -18,8 +18,6 @@ class CoursesFactory extends Factory
     {
         return [
             'category' => 1,
-
-
         ];
     }
 }
