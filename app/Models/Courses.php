@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Courses extends Model
 {
     use HasFactory;
-
+    protected $connection = 'mysql2';
     protected $table = 'mdl_course';
     public $timestamps = false;
 

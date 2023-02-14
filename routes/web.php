@@ -40,9 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get("rol", function (){
-    $role = \Spatie\Permission\Models\Role::create(['name' => 'Student']);
-   return "Listo";
-});
+Route::get(
+    '/a', function (){
+    return "nada";
+}
+)->middleware('role:Admin');
 
 require __DIR__.'/auth.php';
