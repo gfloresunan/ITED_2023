@@ -18,7 +18,7 @@
         @method('patch')
 
         <div>
-            <x-input-label for="lastname" :value="__('Nombres')" />
+            <x-input-label for="name" :value="__('Nombres')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
@@ -27,6 +27,12 @@
             <x-input-label for="name" :value="__('Apellidos')" />
             <x-text-input id="lastname" name="lastname" type="text" class="mt-1 block w-full" :value="old('lastname', $user->lastname)" required autofocus autocomplete="lastname" />
             <x-input-error class="mt-2" :messages="$errors->get('lastname')" />
+        </div>
+
+        <div>
+            <x-input-label for="fecha_nacimiento" :value="__('Fecha de nacimiento')" />
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="mt-1 block w-full" value="{{ old('fecha_nacimiento', date('Y-m-d',$user->fecha_nacimiento)) }}" required autofocus autocomplete="fecha_nacimiento" />
+            <x-input-error class="mt-2" :messages="$errors->get('fecha_nacimiento')" />
         </div>
 
         <div>
@@ -54,7 +60,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('Guardar') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -63,7 +69,7 @@
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
+                >{{ __('Guardado.') }}</p>
             @endif
         </div>
     </form>

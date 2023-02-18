@@ -14,6 +14,13 @@
             <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
         </div>
 
+        <!-- Fecha de nacimiento -->
+        <div class="mt-4">
+            <x-input-label for="fecha_nacimiento" :value="__('Fecha nacimiento')" />
+            <input type="date" id="fecha_nacimiento" class="block mt-1 w-full" type="text" name="fecha_nacimiento" :value="old('fecha_nacimiento')" required />
+            <x-input-error :messages="$errors->get('fecha_nacimiento')" class="mt-2" />
+        </div>
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />

@@ -33,15 +33,26 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:'.User::class],
+            'fecha_nacimiento' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
+        $fecha = date('y-m-d', strtotime($request->fecha_nacimiento));
+
+        $fecha = explode("-", $fecha);
+        $cadena = "";
+        for($i=count($fecha)-1; $i>=0; $i--)
+            $cadena.= $fecha[$i];
+        $carnet = date('y').$cadena.rand(0, 9);
 
         $user = User::create([
             'name' => $request->name,
             'lastname' => $request->lastname,
             'username' => $request->username,
+            'fecha_nacimiento'=> strtotime($request->fecha_nacimiento),
+            'carnet'=> $carnet,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileUpdateGeneralRequest;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -26,17 +27,27 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        return $request->user();
-        dd($request->user());
+        //dd($request);
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+
+        $request->user()->fecha_nacimiento = strtotime($request->user()->fecha_nacimiento);
 //dd($request->user());
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
+    public function updateGeneral(ProfileUpdateGeneralRequest $request): RedirectResponse
+    {
+        //dd($request);
+        $request->user()->fill($request->validated());
+        $request->user()->save();
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated-general');
     }
 
     /**
