@@ -26,7 +26,13 @@ class User extends Authenticatable
         'password',
         'cedula',
         'carnet',
-        'fecha_nacimiento'
+        'fecha_nacimiento',
+        'countries_code',
+        'depmun_id',
+        'comunidad',
+        'estado_civil_id',
+        'sexo',
+        'profesion'
     ];
 
     /**

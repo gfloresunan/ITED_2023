@@ -14,7 +14,12 @@ class ProfileUpdateGeneralRequest extends FormRequest
     public function rules()
     {
         return [
-            'cedula' => ['string', 'max:14']
+            'cedula' => ['required', 'string', 'max:14'],
+            'countries_code' => ['required', 'integer'],
+            'depmun_id' => ['integer'],
+            'comunidad' => ['required', 'string', 'max:250'],
+            'estado_civil_id'=>['required', 'integer'],
+            'sexo' => ['required', 'string', 'max:1']
         ];
     }
 }

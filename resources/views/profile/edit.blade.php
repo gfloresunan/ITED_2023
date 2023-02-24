@@ -7,16 +7,16 @@
     <br>
     <div class="container py-12">
         <ul class="flex border-b">
-            <li class="-mb-px mr-1">
-                <a class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-dark font-semibold active" href="#pestana1">Información del perfil</a>
+            <li class="mr-1 border-b-2 border-blue rounded-t" >
+                <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold {{ session('activeTab', 0) == 0 ? 'active' : '' }}" href="#pestana1" aria-selected="false">Información del perfil</a>
             </li>
-            <li class="mr-1">
-                <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold" href="#pestana2">Datos generales</a>
+            <li class="mr-1 border-b-2 border-blue rounded-t">
+                <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold {{ session('activeTab', 0) == 1 ? 'active' : '' }}" href="#pestana2" aria-selected="true">Datos generales</a>
             </li>
-            <li class="mr-1">
+            <li class="mr-1 border-b-2 border-blue rounded-t">
                 <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold" href="#pestana3">Datos académicos</a>
             </li>
-            <li class="mr-1">
+            <li class="mr-1 border-b-2 border-blue rounded-t">
                 <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold" href="#pestana4">Reiniciar contraseña</a>
             </li>
 
@@ -47,7 +47,7 @@
                 <div class="flex justify-center items-center">
                     <div class="w-full">
                         <div class="w-4/5 mx-auto">
-                            @include('profile.partials.updateGeneral-profile-information-form')
+                            @include('profile.partials.updateAcademico-profile-information-form')
                         </div>
                     </div>
                 </div>

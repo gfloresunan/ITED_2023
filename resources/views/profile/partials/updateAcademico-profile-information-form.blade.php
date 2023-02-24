@@ -1,15 +1,15 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Información general') }}
+            {{ __('Información académica') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Actualice la información general del perfil") }}
+            {{ __("Actualice la información académica del perfil") }}
         </p>
     </header>
 
-    <form method="post" action="{{ route('profile.updateGeneral') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.updateAcademico') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
         <input type="hidden" name="active_tab" value="1">
@@ -17,9 +17,9 @@
 {{--        <input type="hidden" name="selected_tab" value="pestana2">--}}
 
         <div>
-            <x-input-label for="cedula" :value="__('Cédula')" />
-            <x-text-input id="cedula" name="cedula" type="text" class="mt-1 block w-full" :value="old('cedula', $user->cedula)" required autofocus autocomplete="cedula" />
-            <x-input-error class="mt-2" :messages="$errors->get('cedula')" />
+            <x-input-label for="profesion" :value="__('Profesión u oficio')" />
+            <x-text-input id="profesion" name="profesion" type="text" class="mt-1 block w-full" :value="old('profesion', $user->profesion)" required autofocus autocomplete="profesion" />
+            <x-input-error class="mt-2" :messages="$errors->get('profesion')" />
         </div>
         <div>
             <x-input-label for="countries_code" :value="__('País')" />
