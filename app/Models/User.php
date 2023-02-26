@@ -32,7 +32,10 @@ class User extends Authenticatable
         'comunidad',
         'estado_civil_id',
         'sexo',
-        'profesion'
+        'profesion',
+        'area',
+        'nivel_academico_id',
+        'lugar'
     ];
 
     /**

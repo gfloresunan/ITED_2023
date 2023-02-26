@@ -48,6 +48,21 @@
             <x-input-error class="mt-2" :messages="$errors->get('direccion')" />
         </div>
         <div>
+            <x-input-label for="area" :value="__('Área')" />
+            <select id="area" name="area" class="mt-1 block w-full" required>
+                <option value="">Seleccione una opción</option>
+                @foreach ($area as $a)
+                    <option value="{{ $a }}" {{ $user->area == $a ? 'selected' : '' }}>{{ $a }}</option>
+                @endforeach
+            </select>
+            <x-input-error class="mt-2" :messages="$errors->get('area')" />
+        </div>
+        <div>
+            <x-input-label for="lugar" :value="__('Lugar de nacimiento')" />
+            <x-text-input id="lugar" name="lugar" type="text" class="mt-1 block w-full" :value="old('lugar', $user->lugar)" required autofocus autocomplete="lugar" />
+            <x-input-error class="mt-2" :messages="$errors->get('lugar')" />
+        </div>
+        <div>
             <x-input-label for="estado_civil_id" :value="__('Estado civil')" />
             <select id="estado_civil_id" name="estado_civil_id" class="mt-1 block w-full" required>
                 <option value="">Seleccione una opción</option>
@@ -77,7 +92,7 @@
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600"
-                >{{ __('Guardar.') }}</p>
+                >{{ __('Guardado.') }}</p>
             @endif
         </div>
     </form>

@@ -13,7 +13,7 @@ class ProfileUpdateAcademicoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class ProfileUpdateAcademicoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'profesion' => ['required','string'],
+            'nivel_academico_id' => ['required']
         ];
     }
 }

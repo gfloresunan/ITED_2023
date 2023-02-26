@@ -14,7 +14,7 @@
                 <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold {{ session('activeTab', 0) == 1 ? 'active' : '' }}" href="#pestana2" aria-selected="true">Datos generales</a>
             </li>
             <li class="mr-1 border-b-2 border-blue rounded-t">
-                <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold" href="#pestana3">Datos académicos</a>
+                <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold {{ session('activeTab', 0) == 2 ? 'active' : '' }}" href="#pestana3">Datos académicos</a>
             </li>
             <li class="mr-1 border-b-2 border-blue rounded-t">
                 <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold" href="#pestana4">Reiniciar contraseña</a>

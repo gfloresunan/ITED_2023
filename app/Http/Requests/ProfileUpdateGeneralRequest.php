@@ -17,9 +17,11 @@ class ProfileUpdateGeneralRequest extends FormRequest
             'cedula' => ['required', 'string', 'max:14'],
             'countries_code' => ['required', 'integer'],
             'depmun_id' => ['integer'],
-            'comunidad' => ['required', 'string', 'max:250'],
+            'direccion' => ['required', 'string', 'max:250'],
             'estado_civil_id'=>['required', 'integer'],
-            'sexo' => ['required', 'string', 'max:1']
+            'sexo' => ['required', 'in:M,F', 'string', 'max:1'],
+            'area' => ['required', 'in:Rural,Urbano', 'string'],
+            'lugar' => ['required', 'string'],
         ];
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\County;
 use App\Models\DepMun;
 use App\Models\EstadoCivil;
+use App\Models\NivelAcademico;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,11 +26,16 @@ class ProfileController extends Controller
         $dep_mun = DepMun::all();
         $estado_civil = EstadoCivil::all();
         $sexo = ['M', 'F'];
+        $area = ['Urbano', 'Rural'];
+        $nivel = NivelAcademico::all();
+
         return view('profile.edit', [
             'user' => $request->user(), 'countries' => $countries,
             'dep_mun'=>$dep_mun,
             'estado_civil'=>$estado_civil,
-            'sexo' => $sexo
+            'sexo' => $sexo,
+            'area' => $area,
+            'nivel' => $nivel
         ]);
     }
 
@@ -38,7 +44,6 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        //dd($request);
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -46,7 +51,6 @@ class ProfileController extends Controller
         }
 
         $request->user()->fecha_nacimiento = strtotime($request->user()->fecha_nacimiento);
-//dd($request->user());
         $tabIndex = $request->get('active_tab', 0); // 0 es el índice de la primera pestaña por defecto
         session(['activeTab' => $tabIndex]);
         $request->user()->save();
@@ -56,7 +60,6 @@ class ProfileController extends Controller
 
     public function updateGeneral(ProfileUpdateGeneralRequest $request): RedirectResponse
     {
-        //dd($request);
         $request->user()->fill($request->validated());
         $request->user()->save();
         $tabIndex = $request->get('active_tab', 0); // 0 es el índice de la primera pestaña por defecto
@@ -68,13 +71,12 @@ class ProfileController extends Controller
 
     public function updateAcademico(ProfileUpdateAcademicoRequest $request): RedirectResponse
     {
-        //dd($request);
         $request->user()->fill($request->validated());
         $request->user()->save();
         $tabIndex = $request->get('active_tab', 0); // 0 es el índice de la primera pestaña por defecto
 
         session(['activeTab' => $tabIndex]);
-        return back()->with('status', 'profile-updated-general');
+        return back()->with('status', 'profile-updated-academico');
         //return Redirect::route('profile.edit')->with('status', 'profile-updated-general');
     }
 
