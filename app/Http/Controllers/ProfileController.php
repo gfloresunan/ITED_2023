@@ -7,6 +7,7 @@ use App\Http\Requests\ProfileUpdateGeneralRequest;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\County;
 use App\Models\DepMun;
+use App\Models\Discapacidad;
 use App\Models\EstadoCivil;
 use App\Models\NivelAcademico;
 use Illuminate\Http\RedirectResponse;
@@ -28,6 +29,7 @@ class ProfileController extends Controller
         $sexo = ['M', 'F'];
         $area = ['Urbano', 'Rural'];
         $nivel = NivelAcademico::all();
+        $discapacidades = Discapacidad::all();
 
         return view('profile.edit', [
             'user' => $request->user(), 'countries' => $countries,
@@ -35,7 +37,8 @@ class ProfileController extends Controller
             'estado_civil'=>$estado_civil,
             'sexo' => $sexo,
             'area' => $area,
-            'nivel' => $nivel
+            'nivel' => $nivel,
+            'discapacidades' => $discapacidades
         ]);
     }
 

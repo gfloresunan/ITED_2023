@@ -22,6 +22,7 @@ class ProfileUpdateGeneralRequest extends FormRequest
             'sexo' => ['required', 'in:M,F', 'string', 'max:1'],
             'area' => ['required', 'in:Rural,Urbano', 'string'],
             'lugar' => ['required', 'string'],
+            'discapacidad_id' => ['required', 'integer'],
         ];
     }
 }

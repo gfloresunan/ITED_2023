@@ -82,6 +82,16 @@
             </select>
             <x-input-error class="mt-2" :messages="$errors->get('sexo')" />
         </div>
+        <div>
+            <x-input-label for="discapacidad_id" :value="__('Discapacidad')" />
+            <select id="discapacidad_id" name="discapacidad_id" class="mt-1 block w-full" required>
+                <option value="">Seleccione una opción</option>
+                @foreach ($discapacidades as $discapacidad)
+                    <option value="{{ $discapacidad->id }}" {{ $user->discapacidad_id == $discapacidad->id ? 'selected' : '' }}>{{ $discapacidad->name }}</option>
+                @endforeach
+            </select>
+            <x-input-error class="mt-2" :messages="$errors->get('estado_civil_id')" />
+        </div>
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Guardar') }}</x-primary-button>
 

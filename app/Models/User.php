@@ -35,7 +35,8 @@ class User extends Authenticatable
         'profesion',
         'area',
         'nivel_academico_id',
-        'lugar'
+        'lugar',
+        'discapacidad_id'
     ];
 
     /**
