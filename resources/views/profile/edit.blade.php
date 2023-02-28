@@ -17,7 +17,10 @@
                 <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold {{ session('activeTab', 0) == 2 ? 'active' : '' }}" href="#pestana3">Datos académicos</a>
             </li>
             <li class="mr-1 border-b-2 border-blue rounded-t">
-                <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold" href="#pestana4">Reiniciar contraseña</a>
+                <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold {{ session('activeTab', 0) == 3 ? 'active' : '' }}" href="#pestana4">Emergencia avisar a</a>
+            </li>
+            <li class="mr-1 border-b-2 border-blue rounded-t">
+                <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold {{ session('activeTab', 0) == 4 ? 'active' : '' }}" href="#pestana5">Reiniciar contraseña</a>
             </li>
 
         </ul>
@@ -54,6 +57,16 @@
             </div>
 
             <div id="pestana4" class="tab-content hidden">
+                <div class="flex justify-center items-center">
+                    <div class="w-full">
+                        <div class="w-4/5 mx-auto">
+                            @include('profile.partials.updateEmergencia-profile-information-form')
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pestana5" class="tab-content hidden">
                 <div class="flex justify-center items-center">
                     <div class="w-full">
                         <div class="w-4/5 mx-auto">

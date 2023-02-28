@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateAcademicoRequest;
+use App\Http\Requests\ProfileUpdateEmergenciaRequest;
 use App\Http\Requests\ProfileUpdateGeneralRequest;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\County;
@@ -80,6 +81,18 @@ class ProfileController extends Controller
 
         session(['activeTab' => $tabIndex]);
         return back()->with('status', 'profile-updated-academico');
+        //return Redirect::route('profile.edit')->with('status', 'profile-updated-general');
+    }
+
+    public function updateEmergencia(ProfileUpdateEmergenciaRequest $request): RedirectResponse
+    {
+
+        $request->user()->fill($request->validated());
+        $request->user()->save();
+        $tabIndex = $request->get('active_tab', 0); // 0 es el índice de la primera pestaña por defecto
+
+        session(['activeTab' => $tabIndex]);
+        return back()->with('status', 'profile-updated-emergencia');
         //return Redirect::route('profile.edit')->with('status', 'profile-updated-general');
     }
 

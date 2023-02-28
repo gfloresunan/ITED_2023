@@ -24,6 +24,10 @@ class PasswordController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
+        $tabIndex = $request->get('active_tab', 0); // 0 es el índice de la primera pestaña por defecto
+
+        session(['activeTab' => $tabIndex]);
+
         return back()->with('status', 'password-updated');
     }
 }
